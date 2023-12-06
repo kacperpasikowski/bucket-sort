@@ -1,0 +1,17 @@
+.rectangle{
+    width: 31px;
+    background-color: #3498db;
+    margin: 3px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
+#array {
+    padding-top: 3em;
+    width: 980px;
+    margin: auto;
+    align-items: center;
+    position: relative;
+    
+}
