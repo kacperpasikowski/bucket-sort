@@ -15,3 +15,16 @@
     position: relative;
     
 }
+.bucket {
+    position:relative;
+
+
+}
+.same{
+    height: 20px;
+}
+
+.rectangle.highlighted {
+    background-color: red;
+    color: white;
+  }
