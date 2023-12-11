@@ -1,11 +1,13 @@
 .rectangle{
     width: 31px;
+    height: 100px;
     background-color: #3498db;
     margin: 3px;
     display: inline-block;
     text-align: center;
     line-height: 30px;
     color: white;
+    transition: height 0.3s ease;
 }
 #array {
     padding-top: 3em;
@@ -21,10 +23,20 @@
 
 }
 .same{
-    height: 20px;
+    height: 100px;
 }
 
 .rectangle.highlighted {
     background-color: red;
     color: white;
   }
+
+.rectangle.compare {
+    background-color: yellow; /* Kolor dla porównań */
+  }
+  
+.rectangle.swap {
+    background-color: green; /* Kolor dla zamiany */
+  }
+
+
