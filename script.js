@@ -1,4 +1,7 @@
+
 const ArrayManipulator = {
+    sortingInProgress: false,
+    sorted : false,
     container: document.getElementById("array"),
     buckets: {
       bucket1: document.getElementById("bucket1"),
@@ -60,7 +63,11 @@ const ArrayManipulator = {
       }
     },
     async distributeValues(delay =250){
+      if (this.sortingInProgress) {
+        return;
+      }
       this.clearBuckets();
+      this.sortingInProgress = true;
       for (let i=0; i<25; i++){
         let value = this.arr[i];
         await new Promise(resolve=> setTimeout(resolve,delay));
@@ -87,35 +94,39 @@ const ArrayManipulator = {
     }
     this.container.innerHTML = "";
 
-    
     for (let i = 0; i < bucketIds.length; i++) {
       const bucketId = bucketIds[i];
       const rectangles = Array.from(this.buckets[bucketId].getElementsByClassName("rectangle"));
   
       for (let j = 0; j < rectangles.length; j++) {
         const currentRect = rectangles[j];
-        const originalHeight = parseInt(currentRect.style.height);
-        const targetHeight = originalHeight * 2; 
   
-        
         currentRect.classList.add("highlighted");
   
-        for (let h = originalHeight; h <= targetHeight; h += 2) {
-          currentRect.style.height = h + "px";
+        await new Promise(resolve => setTimeout(resolve, delay));
   
-          
-          await new Promise(resolve => setTimeout(resolve, delay / (targetHeight - originalHeight + 1)));
-        }
-  
-       
         currentRect.classList.remove("highlighted");
+  
         this.container.appendChild(currentRect.cloneNode(true));
       }
     }
+    const arrayRectangles = document.querySelectorAll("#array .rectangle");
+    for (let i = 0; i < arrayRectangles.length; i++) {
+      const currentRect = arrayRectangles[i];
+      currentRect.classList.add("sorted");
   
-    await new Promise(resolve => setTimeout(resolve, delay));
-    this.removeHighlightFromArrayRectangles();
-  },
+      await new Promise(resolve => setTimeout(resolve, delay=20));
+  
+      
+    }
+    
+    
+
+    await new Promise(resolve => setTimeout(resolve, delay=100));
+    this.sorted = true;
+    this.sortingInProgress = false;    
+
+    },
     highlightRect(index){
       const arrayRectangles = document.querySelectorAll("#array .rectangle");
       arrayRectangles.forEach(rectangle => rectangle.classList.remove("highlighted"))
@@ -146,7 +157,7 @@ const ArrayManipulator = {
         let barHeight = this.arr[i] * 1.3;
         let arrayRect = document.createElement("div");
         arrayRect.classList.add("rectangle");
-        arrayRect.style.height = barHeight * 10 + "px";
+        arrayRect.style.height = barHeight * 8 + "px";
         arrayRect.style.width = 25 + "px";
         this.container.appendChild(arrayRect);
       }
@@ -163,20 +174,35 @@ const ArrayManipulator = {
   
   
 
-  document.getElementById("sortBtn").addEventListener("click", function(){
-    
-    ArrayManipulator.distributeValues();
-  });
+    document.getElementById("sortBtn").addEventListener("click", async function () {
+      if (!ArrayManipulator.sortingInProgress && !ArrayManipulator.sorted) {
+        await ArrayManipulator.distributeValues();
+        ArrayManipulator.sorted = true;
+        
+      } else if (ArrayManipulator.sorted) {
+        const result = confirm("Tablica jest już posortowana. Czy chcesz ją pomieszać?");
+        if (!result) {
+          return;
+        } else {
+          ArrayManipulator.shuffle();
+          ArrayManipulator.newArray();
+          ArrayManipulator.sorted = false;
+        }
+      }
+    });
 
   
 
-  document.getElementById("shuffleBtn").addEventListener("click", function() {
-    ArrayManipulator.shuffle();
-    ArrayManipulator.newArray();
-  });
+    document.getElementById("shuffleBtn").addEventListener("click", function() {
+      if (!ArrayManipulator.sortingInProgress) {
+        ArrayManipulator.shuffle();
+        ArrayManipulator.newArray();
+        ArrayManipulator.sorted = false; 
+      }
+    });
 
  ArrayManipulator.newArray();
+  
 
-// ArrayManipulator.distributeValues();
 
 
