@@ -57,10 +57,12 @@ const ArrayManipulator = {
       
     },
     shuffle() {
+      this.clearBuckets();
       for (let i = this.arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [this.arr[i], this.arr[j]] = [this.arr[j], this.arr[i]];
       }
+      
     },
     async distributeValues(delay =250){
       if (this.sortingInProgress) {
