@@ -8,9 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand">Sortowanie Kubełkowe</a>       
+    <header data-bs-theme="dark">
+    <nav class="navbar navbar-expand-md bg-body-secondary mb-2 ps-5">
+      <div class="container justify-content-between ">
+        <a class="navbar-brand ">Sortowanie Kubełkowe</a>       
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -26,18 +27,54 @@
         </div>
       </div>
     </nav>
-    <div class="container d-none d-md-block pb-2">
-      <header class="row justify-content-center align-items-center ">
-        <div>
-          <h1 class=" display-4 fw-bold text-light pt-3">Sortowanie Kubełkowe</h1>
-        </div>
-      </header>
-  </div>
-    <div class="container">
-      <div class="row">
-        <h1>siabada</h1>
+  </header>
+  <div class="container">
+    <div class="p-4 p-md-4 mb-4 rounded text-body-emphasis bg-body-primary">
+      <div class="col-lg-8 px-0">
+        <h1 class="display-4 pb-2 mt-0 fw-normal">Sortowanie kubełkowe</h1>
+        <p class="my-2">Sortowanie kubełkowe to algorytm sortowania, którego czas działania w przypadku średnim jest liniowy, przy założeniu że dane wejściowe są wybierane zgodnie z rozkładem jednostajnym. </p>
+        <p class="my-2">Sortowanie kubełkowe polega na podziale przedziału danych liczb na <b> <i> n </i> </b>podprzedziałów jednakowych rozmiarów, tzw. kubełków, do których należą.</p>
+        <p>Dzięki temu, że liczby są rozłożone jednostajnie i niezależnie w danym przedziale, oczekujemy, że w każdym kubełku będzie ich niewiele.</p>
+        <p class="my-2">Aby otrzymać ciąg wynikowy, sortujemy najpierw liczby w każdym z kubełków (najczęściej kubełki sortuje się przy pomocą algorytmu sortowania przez wstawianie) a następie wypisujemy je łącząc posortowane już kubełki.</p>
+        <p class="lead mb-0"><a href="visualisation.html" class="text-body-emphasis fw-bold">Kliknij tutaj aby zobaczyć wizualizację tego algorytmu!</a></p>
       </div>
     </div>
+  </div>
+  
+  <div class="container-fluid">
+    <div class=" p-md-4 rounded text-body-emphasis bg-body-tertiary">
+      <div class="">
+        <h1 class=" display-4  my-0 fw-normal text-center ">Złożoność Obliczeniowa </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="album py-3 bg-body-tertiary">
+    <div class="container">
+      <div class="card-group">
+        <div class="col-md-6 pe-5 ">
+          <div class="card shadow-sm h-100">
+            <img src="assets/time.jpg" alt="">
+            <div class="card-body">
+              <h3 class="card-title py-0">Złożoność czasowa</h3>
+              <p class="card-text py-0">W najlepszym możliwym przypadku algorytm będzie działał w czasie liniowym czyli O(n).</p>
+              <p>Średni czas działania algorytmu to O(n+n<sup>2</sup>/k+k) gdzie <i>"n"</i> to liczba elementów a <i>"k"</i> to liczba kubełków</p>
+              <p>W najgorszym przypadku czas działania algorytmu może wynieść O(n<sup>2</sup>).<br>Taka możliwość zachodzi tylko wtedy gdy każdy element danej tablicy zostanie umieszczonyu w tym samym kubełku.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 ps-5">
+          <div class="card shadow-sm h-100">
+            <img src="assets/space.jpg" alt="">
+            <div class="card-body">
+              <h3 class="card-title">Złożoność pamięciowa</h3>
+              <p class="card-text">Złożoność pamięciowa algorytmu sortowania kubełkowego wynosi O(n+k) gdzie <i>"n"</i> to liczba elementów a <i>"k"</i> to liczba kubełków.</p>
+            </div>
+          </div>
+        </div>
+      </div>   
+    </div>
+  </div>
 
 
 

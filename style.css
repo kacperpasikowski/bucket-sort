@@ -2,7 +2,7 @@
     
     width: 31px;
     height: 100px;
-    background-color: #3498db;
+    background-color: #565555;
     margin: 3px;
     display: inline-block;
     text-align: center;
@@ -42,10 +42,6 @@
     margin-left: 220px; 
 }
 
-header{
-    background: url(assets/20943629.jpg) center center no-repeat ;
-    background-position:cover ;
-    height: 164px;
-    text-shadow: 2px 2px 2px #242424;    
-    
+.card img {
+    filter: grayscale(90%);
 }
