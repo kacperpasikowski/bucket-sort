@@ -41,3 +41,11 @@
 .custom-margin {
     margin-left: 220px; 
 }
+
+header{
+    background: url(assets/20943629.jpg) center center no-repeat ;
+    background-position:cover ;
+    height: 164px;
+    text-shadow: 2px 2px 2px #242424;    
+    
+}
