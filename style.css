@@ -45,3 +45,33 @@
 .card img {
     filter: grayscale(90%);
 }
+
+.dot {
+    height: 8px;
+    width: 8px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+body{
+    font-family: 'Great Vibes', cursive;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+.custom-border {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.zalety-border {
+    margin-right: 7%;
+}
+
+.wady-border {
+    margin-left: 7%;
+}
+
+
+
