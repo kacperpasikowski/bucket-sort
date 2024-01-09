@@ -1,4 +1,5 @@
 
+
 const ArrayManipulator = {
     sortingInProgress: false,
     sorted : false,
@@ -204,6 +205,8 @@ const ArrayManipulator = {
     });
 
  ArrayManipulator.newArray();
+
+
   
 
 
